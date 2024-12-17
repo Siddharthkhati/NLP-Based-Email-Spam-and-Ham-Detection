@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Spam Ham Classifier</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <style>
+      body {
+        background-color: #292929; /* Dark background */
+        color: #ffffff; /* White text */
+        font-family: Arial, sans-serif;
+      }
+      .container {
+        margin-top: 50px;
+        text-align: center; /* Center align */
+      }
+      h1 {
+        color: #ffffff; /* White text */
+        animation: slideInDown 1s ease-out; /* Slide-in animation */
+        font-weight: 700;
+        font-size: 3rem;
+      }
+      @keyframes slideInDown {
+        from {
+          transform: translateY(-50px);
+        }
+        to {
+          transform: translateY(0);
+        }
+      }
+      form {
+        margin-top: 30px;
+      }
+      textarea {
+        width: 80%;
+        min-height: 150px; /* Minimum height */
+        max-height: 300px; /* Maximum height */
+        resize: vertical; /* Allow vertical resizing */
+        background-color: #666666; /* Grey background for textarea */
+        color: #ffffff; /* White text */
+        border-color: red; /* Red border color */
+      }
+      .btn-primary {
+        margin-top: 20px;
+        background-color: #928686; /* Grey button */
+        border-color: red; /* Red button border */
+        border-width: 3px; /* Thick border */
+        color: #ffffff; /* White text */
+        font-size: 1.2rem;
+        box-shadow: 0 0 8px red; /* Red glow effect */
+        transition: box-shadow 0.3s ease; /* Smooth transition */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Spam Ham Classifier</h1>
+      <form method="POST" action="/predict">
+        <div class="row justify-content-center">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="text" class="form-label" style="font-weight: 500"
+                >Enter the text:
+              </label>
+              <textarea
+                class="form-control"
+                id="text"
+                name="text"
+                placeholder="Enter text here..."
+                required
+                oninput="autoResize(this)"
+              ></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Predict</button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <script>
+      function autoResize(textarea) {
+        textarea.style.height = "auto"; // Reset height to auto
+        textarea.style.height = textarea.scrollHeight + "px"; // Set new height
+      }
+    </script>
+  </body>
+</html>
